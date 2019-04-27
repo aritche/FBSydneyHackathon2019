@@ -76,13 +76,11 @@ export default class CreateMakePrediction extends Component {
                         {sim}
                     </Container>
                         )}
-                        </Container>
-                        </Container>
-                        </Container>
+                </Container>
+            </Container>
         )
     }
 
 
 }
 
-//export default InputExampleFocus
