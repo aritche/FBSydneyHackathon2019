@@ -25,7 +25,8 @@ export default class NavBar extends Component {
     render() {
 
         return (
-            <Menu inverted pointing secondary style={{backgroundColor: 'black', padding: '10px', boxShadow: '2px 1px 2px #000000'}}>
+            <Menu inverted pointing secondary style={{backgroundColor: '#313E50', padding: '10px', boxShadow: '2px 1px 2px #000000'}}>
+                <span style={{color: "white", marginRight: "20px", marginTop: "10px", fontSize: "18px"}}>Predict'r</span>
                 <Button icon color='blue' as={Link} to={'/home'} name='plus square outline'>
                     Home
                 </Button>
