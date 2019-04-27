@@ -62,7 +62,6 @@ export default class ExtractFile extends Component {
         this.state.words = this.state.texts[0].split(",")[0].split(" ");
         for (var i = 0; i < this.state.texts.length; i++){
             var components = this.state.texts[i].split(",");
-            console.log(components);
             var predID = parseInt(components[0]);
             var postID = parseInt(components[1]);
             var prediction = components[2];
