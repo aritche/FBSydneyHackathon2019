@@ -10,6 +10,7 @@ export default class CreatePrediction extends Component {
         this.state = {
             errorMessage: 'An error has occurred.',
             value: '',
+            author: 'Joshua Bennett',
             words: [],
             prediction: '',
             data: []
@@ -17,8 +18,7 @@ export default class CreatePrediction extends Component {
         var extractor = new ExtractFile("fake_database/list.txt");
         this.state.prediction = extractor.getData()[0].prediction;
         this.state.words = this.state.prediction.split(" ");
-            author: 'Joshua Bennett'
-        }
+        
     };
 
     render() {
