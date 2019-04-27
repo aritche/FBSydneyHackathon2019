@@ -16,11 +16,12 @@ export default class CreatePrediction extends Component {
 
     handleChange(event) {
         this.setState({value: event.target.value});
-      }
+    }
     
     handleSubmit(event) {
-        toParse = this.state.value;
+        var toParse = this.state.value;
         this.state.words = toParse.split();
+        alert(this.state.words);
         event.preventDefault();
     }
 
@@ -28,15 +29,7 @@ export default class CreatePrediction extends Component {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
                 <div style={{color:'white'}} className='centered-div'>
-                    
-                </div>
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <label> Enter Sentence:
-                            <input type="text" value={this.state.value} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
+                    test
                 </div>
             </Container>
         )
