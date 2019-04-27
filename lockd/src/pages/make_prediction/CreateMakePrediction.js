@@ -71,7 +71,6 @@ export default class CreateMakePrediction extends Component {
 
                 <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
                     <p style={{fontSize : "30px"}}>Similar Posts</p>
-                    <Container style = {{width: "500px", height:"200px"}}>
                     {this.state.similar.map(sim=>
                     <Container style={{ border: "0.5px solid grey", background: "white", width: "{10}" }}>
                         {sim}
