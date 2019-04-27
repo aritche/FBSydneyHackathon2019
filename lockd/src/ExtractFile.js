@@ -78,7 +78,11 @@ export default class ExtractFile extends Component {
         }
     }
 
-    getPosts(postID){
+    getPosts(){
+        return this.state.posts;
+    }
+
+    getPostByID(postID){
         return this.state.posts[postID];
     }
 

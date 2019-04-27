@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import CreateDisplay from './CreateDisplay';
+import CreateMakePrediction from './CreateMakePrediction';
 
-export default class Display extends Component {
+export default class MakePrediction extends Component {
     render() {
         return (
             <div>
-                <CreateDisplay/>
+                <CreateMakePrediction />
             </div>
         )
     }
