@@ -12,6 +12,6 @@
 12,4,arya stark will die,67
 13,5,tony stark will survive, 901
 14,5,tony start won't survive, 120
-15,5, thanos will survive, 50
-16, 6, brienne will be killed by her own sword
-17, 8, brienne won't be killed by her own sword
+15,5,thanos will survive,50
+16,6,brienne will be killed by her own sword,100
+17,8,brienne won't be killed by her own sword,208
