@@ -9,8 +9,8 @@ export default class Routes extends Component {
     render() {
         return (
             <Switch>
-              <Route exact path='/' component={Prediction}/>
-              <Route path='/prediction' component={Prediction}/>
+              <Route exact path='/' component={Display}/>
+              <Route path='/prediction/:postId' component={Prediction}/>
               <Route path='/home' component={Display}/>
               <Route path='/predict' component={MakePrediction}/>
             </Switch>

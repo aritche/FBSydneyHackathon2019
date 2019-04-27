@@ -15,6 +15,7 @@ export default class CreatePrediction extends Component {
   constructor() {
     super();
 
+<<<<<<< HEAD
     this.state = {
       errorMessage: "An error has occurred.",
       value: "",
@@ -23,6 +24,31 @@ export default class CreatePrediction extends Component {
       prediction: "",
       data: [],
       alternatives: []
+=======
+        this.state = {
+            errorMessage: 'An error has occurred.',
+            value: '',
+            author: 'Joshua Bennett',
+            words: [],
+            prediction: '',
+            data: [],
+            alternatives: []
+        }
+        var extractor = new ExtractFile("fake_database/list.txt");
+
+        var options = extractor.getPredictions(1)
+        options.sort(function (a,b){
+            return b.likes - a.likes; 
+        });
+
+        if (options.length > 0){
+            this.state.prediction = options[0].prediction;
+        }
+        console.log(this.state.words);
+        for (var item = 1; item < options.length; item++){
+            this.state.alternatives.push([options[item].prediction, options[item].likes]);
+        }
+>>>>>>> 94d2de1d5b08e50b47b2e7c092a95c0c579d07d7
     };
     var extractor = new ExtractFile("fake_database/list.txt");
 
