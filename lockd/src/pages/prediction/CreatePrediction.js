@@ -29,9 +29,12 @@ export default class CreatePrediction extends Component {
             postID: 0
         }
 
-        this.state.postID = this.props.postID;
+        this.state.postID = parseInt(this.props.postID);
+        console.log(this.state.postID);
 
         var extractor = new ExtractFile();
+        extractor.loadList();
+        extractor.loadPreds();
         var options = extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
+import { Component } from 'react';
 
 export default class Similarity extends Component {
     constructor(){
