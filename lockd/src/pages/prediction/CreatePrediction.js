@@ -46,21 +46,10 @@ export default class CreatePrediction extends Component {
 
         if (options.length > 0){
             var toCheck = options[0];
+            console.log(toCheck);
             var sim = new Similarity();
-            var toCompare = [];
-            for(var i = 0; i < extractor.getAllPredictions().length; i++){
-                if(toCheck.predID == extractor.getAllPredictions(i).predID){
-                    toCompare.push(extractor.getAllPredictions(i).prediction);
-                }
-            }
-            var weights = sim.getWeights(toCheck.prediction, toCompare);
-            for(var i = 0; i < weights.length; i++){
-                if(weights[i] > this.state.max){
-                    this.state.max = weights[i];
-                    this.state.match = toCompare[i];
-                }
-            }
-            console.log(this.state.max);
+            var array = sim.getSimilar(toCheck.prediction);
+            console.log(array);
         }
 };
 
