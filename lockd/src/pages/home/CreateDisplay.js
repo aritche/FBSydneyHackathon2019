@@ -1,31 +1,7 @@
-import React, {Component} from "react";
-import {Container, Grid } from "semantic-ui-react";
+import React from "react";
+import { Grid } from "semantic-ui-react";
 
-function predictions () {
-  this.prediction= "antman will kill thanos";
-  this.likes= 250;
-  this.contributers= 100;
-  this.hashtag1= "anus";
-  this.hashtag2= "explode";
-
-  this.getPrediction = function(){
-    return this.prediction;
-  }
-  this.getLikes = function(){
-    return this.likes;
-  }
-  this.getContributers = function(){
-    return this.contributers;
-  }
-  this.getHastag1 = function(){
-    return this.hashtag1;
-  }
-  this.getHastag2 = function(){
-    return this.hashtag2;
-  }
-
-
-};
+//To - Do: Need to have a grid class that creates a grid based on the following example 
 
 const GridExampleColumns = () => (
   <Grid style={{ border: "2px solid black" }}>
@@ -58,12 +34,13 @@ const GridExampleColumns = () => (
         <Grid.Column style={{ justifyContent: "center" }}>
           contributers = 2
         </Grid.Column>
-        <Grid.Column style = {{justifyContent:"right"}}> original author = Josh</Grid.Column>
+        <Grid.Column style={{ justifyContent: "right" }}>
+          {" "}
+          original author = Josh
+        </Grid.Column>
       </Grid>
     </Grid.Row>
   </Grid>
 );
 
 export default GridExampleColumns;
-
-export default GridExamplePadded;

@@ -3,4 +3,8 @@ cersi lanister will be killed by jamie lanister, 270,12,GOT, cersi;
 ari will be unsuccessful with life, 2, 1, Ari;
 Ned Stark will die, 1234, 2345, GOT, S01E09, Ned Stark;
 
-ID  Contributers    Tags    
+ID,Contributers,Tags
+1,301,anus,explode  
+2, 400, GOT, cersi
+3, 4, ari  
+4, 2345, GOT, S01e09, Ned Stark
