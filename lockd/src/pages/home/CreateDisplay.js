@@ -39,6 +39,7 @@ export default class createDisplay extends Component {
     }
 
     for (var i = 0; i < extractor.getPosts().length; i++) {
+      console.log("abc" +  i);
       this.state.posts.push(
         new post(
           extractor.getPredictions(i + 1)[0].prediction,
@@ -49,7 +50,6 @@ export default class createDisplay extends Component {
         )
       )
     }
-    console.log(extractor.getPosts.length);
   }
 
   render() {
