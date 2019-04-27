@@ -33,11 +33,6 @@ export default class CreatePrediction extends Component {
         }
 
         this.state.postID = parseInt(this.props.postID);
-        this.update();
-
-    };
-
-    update(){
         var options = this.state.extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 
@@ -69,12 +64,12 @@ export default class CreatePrediction extends Component {
             }
             var array = sim.getSimilar(toCheck.prediction);
         }
-    }
+
+    };
 
     handleClick = (selectedItem) => {
         //alert('Increase vote count of "'+ selectedItem + '" in backend');
         this.state.extractor.addVote(selectedItem);
-        this.update();
     }
 
     render() {
