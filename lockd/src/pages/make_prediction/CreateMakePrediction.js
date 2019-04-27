@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Segment, Container, Button, Header, Grid, Divider, TextArea, Input } from 'semantic-ui-react';
 import ExtractFile from '../../ExtractFile';
 import Similarity from '../../Similarity';
+import {Link} from 'react-router-dom';
 
 export default class CreateMakePrediction extends Component {
     constructor() {
@@ -72,11 +73,10 @@ export default class CreateMakePrediction extends Component {
                 <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
                     <p style={{fontSize : "30px"}}>Similar Posts</p>
                     {this.state.similar.map(sim=>
-                    <Container style={{ border: "0.5px solid grey", background: "white", width: "{10}" }}>
+                    <Container as = {Link} to = {'/home'} style={{ border: "0.5px solid grey", background: "white", width: "{10}" }}>
                         {sim}
                     </Container>
                         )}
-                        </Container>
                         </Container>
                         </Container>
         )
