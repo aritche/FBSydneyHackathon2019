@@ -1,12 +1,17 @@
 1,1,antman will kill thanos,270
 2,1,captain america will kill thanos,140
 3,1,antman will kill captain america,10
-4,2,cersi lanister will be killed by jamie lanister,301
-5,2,jamie lanister will be killed by cersi lanister,102
-6,2,ned stark will be killed by jamie lanister,70
+4,2,cerci lanister will be killed by jaime lanister,301
+5,2,jaime lanister will be killed by cerci lanister,102
+6,2,ned stark will be killed by jaime lanister,70
 7,3,ari will be unsuccessful with life,4
 8,3,ari will be successful with life,3
 9,3,ari will be unsuccessful with hackathon,2
 10,4,ned stark will die,1601
 11,4,ned stark won't die,1002
 12,4,arya stark will die,67
+13,5,tony stark will survive, 901
+14,5,tony start won't survive, 120
+15,5, thanos will survive, 50
+16, 6, brienne will be killed by her own sword
+17, 8, brienne won't be killed by her own sword
