@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Segment, Container, Button, Header, Grid, Divider, TextArea } from 'semantic-ui-react';
 import ExtractFile from '../../ExtractFile';
 import MetaInfo from './MetaInfo'
+import Similarity from '../../Similarity';
 
 export default class CreatePrediction extends Component {
     constructor() {
@@ -14,9 +15,11 @@ export default class CreatePrediction extends Component {
             words: [],
             prediction: '',
             data: [],
-            alternatives: []
+            alternatives: [],
+            max: 0,
+            match: ''
         }
-        var extractor = new ExtractFile("fake_database/list.txt");
+        var extractor = new ExtractFile();
 
         var options = extractor.getPredictions(1)
         options.sort(function (a,b){
@@ -28,6 +31,23 @@ export default class CreatePrediction extends Component {
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
+
+        var toCheck = options[0];
+        var sim = new Similarity();
+        var toCompare = [];
+        for(var i = 0; i < extractor.getAllPredictions().length; i++){
+            if(toCheck.predID == extractor.getAllPredictions(i).predID){
+                toCompare.push(extractor.getAllPredictions(i).prediction);
+            }
+        }
+        var weights = sim.getWeights(toCheck.prediction, toCompare);
+        for(var i = 0; i < weights.length; i++){
+            if(weights[i] > this.state.max){
+                this.state.max = weights[i];
+                this.state.match = toCompare[i];
+            }
+        }
+        console.log(this.state.max);
     };
 
     render() {
@@ -57,9 +77,12 @@ export default class CreatePrediction extends Component {
                         )}
                 </Grid>
                 
-
+                <div>
+                    {this.state.match}
+                </div>
                 <Divider />
                 <MetaInfo/>
+
             </Container>
         )
     }

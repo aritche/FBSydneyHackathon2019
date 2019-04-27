@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
+import { Component } from 'react';
 
 export default class ExtractFile extends Component {
     constructor() {
@@ -20,18 +19,19 @@ export default class ExtractFile extends Component {
 		rawFile.open("GET", file, false);
 		rawFile.onreadystatechange = () => {
 			if (rawFile.readyState === 4) {
-				if (rawFile.status === 200 || rawFile.status == 0) {
+				if (rawFile.status === 200 || rawFile.status === 0) {
 					var allText = rawFile.responseText;
-					this.state.raw = allText;
+                    this.setState((state) => ({
+                        raw: allText
+                    }))
 				}
 			}
 		};
         rawFile.send(null);
-        this.state.texts = this.state.raw.split("\n");
-        this.state.words = this.state.texts[0].split(",")[0].split(" ");
-        for (var i = 0; i < this.state.texts.length; i++){
+        var texts = this.state.raw.split("\n");
+        for (var i = 0; i < texts.length; i++){
             var data = new Object();
-            var components = this.state.texts[i].split(",");
+            var components = texts[i].split(",");
             var postID = parseInt(components[0]);
             var contributors = parseInt(components[1]);
             var tags = [];
@@ -62,7 +62,6 @@ export default class ExtractFile extends Component {
         this.state.texts = this.state.raw.split("\n");
         this.state.words = this.state.texts[0].split(",")[0].split(" ");
         for (var i = 0; i < this.state.texts.length; i++){
-            var data = new Object();
             var components = this.state.texts[i].split(",");
             var predID = parseInt(components[0]);
             var postID = parseInt(components[1]);
@@ -94,6 +93,10 @@ export default class ExtractFile extends Component {
             }
         }
         return predictions;
+    }
+
+    getAllPredictions(){
+        return this.state.predictions;
     }
 
     render(){

@@ -3,19 +3,19 @@ import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
 
 export default class Similarity extends Component {
     constructor(){
-      this.super();
+      super();
     }
 
-    function Similarity(phrase1, predictions
+    getWeights(phrase1, predictions){
       var array = [];
-      for(var i = 0; i< predictions.length; i++){
-        array.push(compare(phrase1, predictions[i]));
+      for(var i = 0; i < predictions.length; i++){
+        array.push(this.compare(phrase1, predictions[i]));
       }
       return array;
     }
 
 
-    function compare (phrase1, phrase2){
+    compare (phrase1, phrase2){
       var words1 = phrase1.split(" ");
       var words2 = phrase2.split(" ");
       var count = 0;
