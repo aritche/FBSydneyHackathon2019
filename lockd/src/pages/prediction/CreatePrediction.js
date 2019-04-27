@@ -8,7 +8,8 @@ import {
   Grid,
   Divider,
   TextArea,
-  Icon
+  Icon,
+  Dropdown
 } from "semantic-ui-react";
 import ExtractFile from "../../ExtractFile";
 import MetaInfo from "./MetaInfo";
@@ -22,14 +23,16 @@ export default class CreatePrediction extends Component {
             value: '',
             author: 'Joshua Bennett',
             words: [],
-            prediction: '',
+            prediction: [],
             predictionVotes: 0,
             data: [],
             alternatives: [],
             max: 0,
             match: '',
             postID: 0,
-            extractor: new ExtractFile()
+            extractor: new ExtractFile(),
+            word_options: [[]],
+            seen: 0
         }
 
         this.state.postID = parseInt(this.props.postID);
@@ -37,14 +40,29 @@ export default class CreatePrediction extends Component {
         options.sort(function (a,b){
             return b.likes - a.likes; 
         });
-
+        
+        // determine the major prediction
         if (options.length > 0){
-            this.state.prediction = options[0].prediction;
+            this.state.prediction = options[0].prediction.split(" ");
             this.state.predictionVotes = options[0].likes;
         }
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes, options[item].predID]);
         }
+
+        // generate the word alternatives
+        for (var index = 0; index < this.state.prediction.length; index++){
+             this.state.word_options.push([]);
+        }
+        for (var alt = 0; alt < this.state.alternatives.length; alt++){
+            var alt_options = this.state.alternatives[alt][0].split(" ");
+            for (var i = 0; i < alt_options.length; i++){
+                this.state.word_options[i].push(alt_options[i]);
+            }
+        }
+
+    
+
 
         if (options.length > 0){
             var toCheck = options[0];
@@ -68,8 +86,29 @@ export default class CreatePrediction extends Component {
     };
 
     handleClick = (selectedItem) => {
-        //alert('Increase vote count of "'+ selectedItem + '" in backend');
-        this.state.extractor.addVote(selectedItem);
+        alert('Increase vote count of "'+ selectedItem + '" in backend');
+        //this.state.extractor.addVote(selectedItem);
+    }
+
+    majorClick = (pred) => {
+        alert("clicked " + pred);
+    }
+
+    getOptions = (wordIndex) => {
+        // once the major prediction is determined, get alternate words:
+        var result = []
+        result.push({
+                    text: this.state.prediction[this.state.seen]
+                });
+        var target = this.state.word_options[this.state.seen];
+
+        for (var i = 0; i < target.length; i++){
+            result.push({
+                text: target[i]  
+            })
+        }
+        this.state.seen++;
+        return result;
     }
 
     render() {
@@ -82,15 +121,9 @@ export default class CreatePrediction extends Component {
                         <Segment inverted color='green' style={{padding:"0 10px 0 10px"}}>
                            {this.state.predictionVotes} votes
                         </Segment>
-                        <Button style={{
-                            background:'none', 
-                            fontSize:'24pt',
-                            color:'black',
-                            border:'3px solid white',
-                            padding:'3px'
-                            }}>
-                            {this.state.prediction}
-                        </Button>
+                        {this.state.prediction.map(pred => 
+                            <Dropdown placeholder={pred} fluid selection options={this.getOptions(pred)}/>
+                         )}
                     </Segment.Group>
                             </Grid.Row>
                 </Grid>
