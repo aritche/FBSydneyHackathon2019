@@ -12,12 +12,32 @@ export default class createDisplay extends Component {
 
     var extractor = new ExtractFile("fake_database/list.txt");
 
+    function post(prediction, tag1, tag2, likes, contributions) {
+      this.prediction = prediction;
+      this.tag1 = tag1;
+      this.tag2 = tag2;
+      this.likes = likes;
+      this.contributions = contributions;
+    }
+
     console.log(extractor.getPosts().length);
     for (var i = 0; i < extractor.getPosts().length; i++) {
-        var val = extractor.getPredictions(i+1)[0];
-        //console.log(val);
-        //console.log(new Post(val.prediction,val.tags[0],val.tags[0],val.likes,val.contributions[0]));
-        console.log(val);
+      console.log("abc" +  i);
+      console.log(extractor.getPosts().length)
+      console.log(extractor.getPredictions(i+1)[0].prediction)
+      console.log(extractor.getPostByID(i + 1).tags[0])
+      console.log(extractor.getPostByID(i + 1).tags[1])
+      console.log(extractor.getPredictions(i+1)[0].likes)
+      console.log(extractor.getPostByID(i+1).contributions[0])
+      this.state.posts.push(
+        new post(
+          extractor.getPredictions(i + 1)[0].prediction,
+          extractor.getPostByID(i + 1).tags[0],
+          extractor.getPostByID(i + 1).tags[1],
+          extractor.getPredictions(i+1)[0].likes,
+          extractor.getPostByID(i+1).contributions[0]
+        )
+      )
     }
   }
 

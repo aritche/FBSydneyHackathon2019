@@ -1,8 +1,15 @@
 import { Component } from 'react';
+import ExtractFile from './ExtractFile';
 
 export default class Similarity extends Component {
     constructor(){
       super();
+      this.status = {
+        extractor: new ExtractFile(),
+        thresh: 0.1,
+        matches: []
+      }
+
     }
 
     getWeights(phrase1, predictions){
@@ -21,7 +28,7 @@ export default class Similarity extends Component {
       var total = 0;
       for(var i = 0; i< words1.length; i++){
         for(var j = 0; j<words2.length; j++){
-          if(words1[i].equals(words2[j])){
+          if(words1[i] === words2[j]){
             count = count + 1;
 
           }
@@ -34,5 +41,19 @@ export default class Similarity extends Component {
 
     render(){
         return null;
+    }
+
+    getSimilar(toCheck){
+      var toCompare = [];
+      for(var i = 0; i < this.status.extractor.getAllPredictions().length; i++){
+        toCompare.push(this.status.extractor.getAllPredictions()[i].prediction);
+      }
+      var weights = this.getWeights(toCheck, toCompare);
+      for(var i = 0; i < weights.length; i++){
+          if(weights[i] > this.status.thresh){
+              this.status.matches.push(this.status.extractor.getAllPredictions()[i]);
+          }
+      }
+      return this.status.matches;
     }
 }
