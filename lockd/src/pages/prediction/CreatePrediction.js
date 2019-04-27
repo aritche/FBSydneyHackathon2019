@@ -17,58 +17,57 @@ import ExtractFile from "../../ExtractFile";
 import MetaInfo from "./MetaInfo";
 
 export default class CreatePrediction extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-    this.state = {
-        errorMessage: 'An error has occurred.',
-        value: '',
-        author: 'Joshua Bennett',
-        words: [],
-        prediction: '',
-        data: [],
-        alternatives: [],
-        max: 0,
-        match: ''
-    }
-    var extractor = new ExtractFile();
-
-
-    var options = extractor.getPredictions(1)
-    options.sort(function (a,b){
-        return b.likes - a.likes; 
-    });
-
-    if (options.length > 0){
-        this.state.prediction = options[0].prediction;
-    }
-    console.log(this.state.words);
-    for (var item = 1; item < options.length; item++){
-        this.state.alternatives.push([options[item].prediction, options[item].likes]);
-    }
-
-    var toCheck = options[0];
-    var sim = new Similarity();
-    var toCompare = [];
-    for(var i = 0; i < extractor.getAllPredictions().length; i++){
-        if(toCheck.predID == extractor.getAllPredictions(i).predID){
-            toCompare.push(extractor.getAllPredictions(i).prediction);
+        this.state = {
+            errorMessage: 'An error has occurred.',
+            value: '',
+            author: 'Joshua Bennett',
+            words: [],
+            prediction: '',
+            data: [],
+            alternatives: [],
+            max: 0,
+            match: '',
+            postID: 0
         }
-    }
-    var weights = sim.getWeights(toCheck.prediction, toCompare);
-    for(var i = 0; i < weights.length; i++){
-        if(weights[i] > this.state.max){
-            this.state.max = weights[i];
-            this.state.match = toCompare[i];
+        var extractor = new ExtractFile();
+
+
+        var options = extractor.getPredictions(1)
+        options.sort(function (a,b){
+            return b.likes - a.likes; 
+        });
+
+        if (options.length > 0){
+            this.state.prediction = options[0].prediction;
         }
-    }
-    console.log(this.state.max);
-    var extractor = new ExtractFile("fake_database/list.txt");
-        this.state.prediction = options[0].prediction;
         console.log(this.state.words);
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
+
+        var toCheck = options[0];
+        var sim = new Similarity();
+        var toCompare = [];
+        for(var i = 0; i < extractor.getAllPredictions().length; i++){
+            if(toCheck.predID == extractor.getAllPredictions(i).predID){
+                toCompare.push(extractor.getAllPredictions(i).prediction);
+            }
+        }
+        var weights = sim.getWeights(toCheck.prediction, toCompare);
+        for(var i = 0; i < weights.length; i++){
+            if(weights[i] > this.state.max){
+                this.state.max = weights[i];
+                this.state.match = toCompare[i];
+            }
+        }
+        console.log(this.state.max);
+
+        this.state.postID = this.props.postID;
+        //console.log("OKKKKKKKKK");
+        //console.log(this.state.postID);
 };
 
     render() {
