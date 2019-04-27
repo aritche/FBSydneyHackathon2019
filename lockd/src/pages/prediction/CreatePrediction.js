@@ -1,7 +1,3 @@
-import React, { Component } from 'react';
-import { Segment, Container, Button, Header, Grid, Divider, TextArea } from 'semantic-ui-react';
-import ExtractFile from '../../ExtractFile';
-import MetaInfo from './MetaInfo'
 import Similarity from '../../Similarity';
 import React, { Component } from "react";
 import {
@@ -33,8 +29,6 @@ export default class CreatePrediction extends Component {
             postID: 0
         }
         var extractor = new ExtractFile();
-
-
         var options = extractor.getPredictions(1)
         options.sort(function (a,b){
             return b.likes - a.likes; 
@@ -103,15 +97,6 @@ export default class CreatePrediction extends Component {
                 <Divider />
                 <MetaInfo/>
 
-            </Container>
-        )
-    var options = extractor.getPredictions(1);
-    options.sort(function(a, b) {
-      return b.likes - a.likes;
-    });
-
-                <Divider />
-                <MetaInfo/>
             </Container>
         )
     }
