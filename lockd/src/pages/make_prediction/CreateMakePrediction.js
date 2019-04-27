@@ -11,9 +11,9 @@ export default class CreateMakePrediction extends Component {
             query: '',
             similar: []
         }
-       
+
     };
-    
+
     componentDidMount() {
         setInterval(() => {
             this.setState(() => {
@@ -30,7 +30,7 @@ export default class CreateMakePrediction extends Component {
     performSearch = (e) => {
         if (e.key === 'Enter'){
             var sim = new Similarity();
-           
+
             var array = sim.getSimilar(this.state.query);
             console.log(array);
             // CODE FOR WHEN ENTER IS PRESSED
@@ -42,8 +42,8 @@ export default class CreateMakePrediction extends Component {
             }
         }
 
-        
-        
+
+
 
     }
 
@@ -75,9 +75,9 @@ export default class CreateMakePrediction extends Component {
                         {sim}
                     </Container>
                         )}
-                    
 
-                    
+
+
                 </Container>
             </Container>
         )
