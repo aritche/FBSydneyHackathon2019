@@ -84,5 +84,3 @@ export default class CreateMakePrediction extends Component {
 
 
 }
-
-//export default InputExampleFocus
