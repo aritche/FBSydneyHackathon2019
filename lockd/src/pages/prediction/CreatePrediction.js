@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, button, Header, Grid, TextArea } from 'semantic-ui-react';
+import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
 
 export default class CreatePrediction extends Component {
     constructor() {
@@ -8,7 +8,7 @@ export default class CreatePrediction extends Component {
         this.state = {
             errorMessage: 'An error has occurred.',
             value: '',
-            words: []
+            words: ['This', 'is', 'my', 'prediction.']
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +29,9 @@ export default class CreatePrediction extends Component {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
                 <div style={{color:'white'}} className='centered-div'>
-                    test
+                        {
+                            this.state.words.map(word => <Button>{word}</Button>)
+                        }
                 </div>
             </Container>
         )
