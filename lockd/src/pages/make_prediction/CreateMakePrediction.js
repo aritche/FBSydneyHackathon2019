@@ -5,34 +5,50 @@ import ExtractFile from '../../ExtractFile';
 export default class CreateMakePrediction extends Component {
     constructor() {
         super();
+
+        this.state = {
+            query: ''
+        }
     };
+
+    updateQuery = (e) => {
+        this.setState({query: e.target.value});
+    }
+
+    performSearch = (e) => {
+        if (e.key === 'Enter'){
+            // CODE FOR WHEN ENTER IS PRESSED
+            // STRING YOU ENTERED IS STORED IN: this.state.query
+            alert(this.state.query);
+        }
+    }
 
     render() {
         return (
-          <Container>
-            <Container style={{backgroundColor: "#9AF36D", minHeight: '50vh', marginTop: "40px"}}>
             <Container>
-            <p style={{fontSize : "30px"}}>Create A New Prediction</p>
-            <Input
-            style={{marginTop : "40px"}}
-            icon='tags'
-            iconPosition='left'
-            labelPosition='right'
-            placeholder='Enter tags'
+                <Container style={{backgroundColor: "#9AF36D", minHeight: '50vh', marginTop: "40px"}}>
+                    <Container>
+                        <p style={{fontSize : "30px"}}>Create A New Prediction</p>
+                        <Input
+                        style={{marginTop : "40px"}}
+                        icon='tags'
+                        iconPosition='left'
+                        labelPosition='right'
+                        placeholder='Enter tags'
+                        />
+                    </Container>
 
-            />
-            </Container>
-            <Container>
-            <Input style ={{fontSize: "26px", align: "center"}} focus placeholder='Prediction...' />
-            </Container>
-            </Container>
+                    <Container>
+                        <Input style ={{fontSize: "26px", align: "center"}} focus placeholder='Prediction...' onChange={this.updateQuery} onKeyPress={this.performSearch}/>
+                    </Container>
+                </Container>
 
-            <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
-            <p style={{fontSize : "30px"}}>Similar Posts</p>
-            <p>There are no similar posts
-            </p>
+                <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
+                    <p style={{fontSize : "30px"}}>Similar Posts</p>
+                    <p>There are no similar posts
+                    </p>
+                </Container>
 
-            </Container>
             </Container>
         )
     }
