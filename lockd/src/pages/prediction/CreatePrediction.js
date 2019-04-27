@@ -10,27 +10,23 @@ export default class CreatePrediction extends Component {
             value: '',
             words: ['Jon', 'snow', 'will', 'bend', 'the', 'knee', 'to', 'save', 'the', 'North']
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     };
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-    
-    handleSubmit(event) {
-        var toParse = this.state.value;
-        this.state.words = toParse.split();
-        alert(this.state.words);
-        event.preventDefault();
-    }
 
     render() {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
-                <div style={{color:'white'}} className='centered-div'>
+                <div style={{color:'white', paddingTop:'10px'}} className='centered-div'>
                         {
-                            this.state.words.map(word => <Button>{word}</Button>)
+                            this.state.words.map(word => 
+                                <Button style={{
+                                    background:'none', 
+                                    fontSize:'24pt',
+                                    color:'white',
+                                    border:'3px solid white',
+                                    padding:'3px'
+                                    }}>
+                                    {word}
+                                </Button>)
                         }
                 </div>
             </Container>
