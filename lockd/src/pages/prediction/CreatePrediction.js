@@ -32,7 +32,7 @@ export default class CreatePrediction extends Component {
         this.state.postID = this.props.postID;
 
         var extractor = new ExtractFile();
-        var options = extractor.getPredictions(this.state.postID)
+        var options = extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 
         });
@@ -40,7 +40,6 @@ export default class CreatePrediction extends Component {
         if (options.length > 0){
             this.state.prediction = options[0].prediction;
         }
-        console.log(this.state.words);
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
