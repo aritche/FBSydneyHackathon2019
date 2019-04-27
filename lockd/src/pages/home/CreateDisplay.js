@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
 import ExtractFile from "../../ExtractFile";
 
@@ -14,7 +14,7 @@ import ExtractFile from "../../ExtractFile";
  * topic (unimplemented)
  * author:
  */
-export default class createDisplay extends Component{
+export default class CreateDisplay extends Component {
   constructor(){
     super();
 
@@ -88,5 +88,4 @@ export default class createDisplay extends Component{
       
     )
   }
-
 }

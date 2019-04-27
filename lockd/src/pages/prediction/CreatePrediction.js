@@ -18,7 +18,7 @@ export default class CreatePrediction extends Component {
         }
         var extractor = new ExtractFile("fake_database/list.txt");
 
-        var options = extractor.getPredictions(2)
+        var options = extractor.getPredictions(1)
         options.sort(function (a,b){
             return b.likes - a.likes; 
         });
