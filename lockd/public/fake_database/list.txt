@@ -1,4 +1,4 @@
-antman will kill thanos,270,301,anus,explode;
-cersi lanister will be killed by jamie lanister, 270,12,GOT, cersi;
-ari will be unsuccessful with life, 2, 1, Ari;
-Ned Stark will die, 1234, 2345, GOT, S01E09, Ned Stark;
+antman will kill thanos,301,anus,explode;
+cersi lanister will be killed by jamie lanister,12,GOT,cersi;
+ari will be unsuccessful with life,1,Ari;
+Ned Stark will die,2345,GOT,S01E09,Ned Stark;   

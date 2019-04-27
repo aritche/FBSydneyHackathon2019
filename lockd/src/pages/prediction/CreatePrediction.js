@@ -14,16 +14,20 @@ export default class CreatePrediction extends Component {
             words: [],
             prediction: '',
             data: [],
-            alternatives: [['Thor will kill thanos', 100],
-                           ['Cap will kill thanos', 84],
-                           ['Ant man will not kill thanos', 72]
-                          ]
+            alternatives: []
         }
         var extractor = new ExtractFile("fake_database/list.txt");
-        this.state.prediction = extractor.getData()[0].prediction;
-        this.state.prediction = "Ant man will kill thanos";
-        this.state.words = this.state.prediction.split(" ");
-        
+
+        var options = extractor.getPredictions(2)
+        options.sort(function (a,b){
+            return b.likes - a.likes; 
+        });
+
+        this.state.prediction = options[0].prediction;
+        console.log(this.state.words);
+        for (var item = 1; item < options.length; item++){
+            this.state.alternatives.push([options[item].prediction, options[item].likes]);
+        }
     };
 
     render() {
