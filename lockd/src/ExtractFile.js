@@ -92,6 +92,10 @@ export default class ExtractFile extends Component {
         return predictions;
     }
 
+    getSize(){
+        return this.state.posts.length;
+    }
+
     render(){
         return null;
     }
