@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
+import MetaInfo from './MetaInfo'
 
 export default class CreatePrediction extends Component {
     constructor() {
@@ -8,14 +9,15 @@ export default class CreatePrediction extends Component {
         this.state = {
             errorMessage: 'An error has occurred.',
             value: '',
-            words: ['Jon', 'snow', 'will', 'bend', 'the', 'knee', 'to', 'save', 'the', 'North']
+            words: ['Jon', 'snow', 'will', 'bend', 'the', 'knee', 'to', 'save', 'the', 'North'],
+            author: 'Joshua Bennett'
         }
     };
 
     render() {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
-                <div style={{color:'white', paddingTop:'10px'}} className='centered-div'>
+                <div style={{color:'white', paddingTop:'10px', fontSize:'20pt'}} className='centered-div'>
                         {
                             this.state.words.map(word => 
                                 <Button style={{
@@ -26,9 +28,12 @@ export default class CreatePrediction extends Component {
                                     padding:'3px'
                                     }}>
                                     {word}
-                                </Button>)
-                        }
+                                </Button>) 
+                        } ~{this.state.author}
                 </div>
+
+                <hr/>
+                <MetaInfo/>
             </Container>
         )
     }
