@@ -4,9 +4,6 @@ import ExtractFile from "../../ExtractFile";
 
 //To - Do: Need to have a grid class that creates a grid based on the following example 
 
-const GridExampleColumns = () => (
- 
-);
 
 /**
  * Ok so what is the input values going to look like
@@ -17,7 +14,7 @@ const GridExampleColumns = () => (
  * topic (unimplemented)
  * author:
  */
-export default class createPost extends Component{
+export default class createDisplay extends Component{
   constructor(){
     super();
 

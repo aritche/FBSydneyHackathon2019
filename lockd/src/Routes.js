@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Prediction from "./pages/prediction/Prediction";
 import PredictionList from './pages/prediction_list/PredictionList';
+import Display from './pages/home/Display';
 
 export default class Routes extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class Routes extends Component {
             <Switch>
               <Route exact path='/' component={Prediction}/>
               <Route path='/prediction' component={Prediction}/>
-              <Route path='/predictionList' component={PredictionList}/>
+              <Route path='/home' component={Display}/>
             </Switch>
         )
     }
