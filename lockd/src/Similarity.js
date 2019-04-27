@@ -49,7 +49,7 @@ export default class Similarity extends Component {
         toCompare.push(this.status.extractor.getAllPredictions()[i].prediction);
       }
       var weights = this.getWeights(toCheck, toCompare);
-      for(var i = 0; i < weights.length; i++){
+      for(i = 0; i < weights.length; i++){
           if(weights[i] > this.status.thresh){
               this.status.matches.push(this.status.extractor.getAllPredictions()[i]);
           }
