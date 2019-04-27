@@ -84,14 +84,16 @@ export default class CreatePrediction extends Component {
                 });
         var target = this.state.word_options[this.state.seen];
 
-        for (var i = 0; i < target.length; i++){
-            result.push({
-                key: target[i],
-                text: target[i],
-                value: target[i]
-            })
+        if (target != null){
+            for (var i = 0; i < target.length; i++){
+                result.push({
+                    key: target[i],
+                    text: target[i],
+                    value: target[i]
+                })
+            }
+            this.state.seen++;
         }
-        this.state.seen++;
         return result;
     }
 
