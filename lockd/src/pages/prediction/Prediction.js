@@ -15,7 +15,7 @@ export default class Prediction extends Component {
         return (
             <div>
                 {this.state.post_id}
-                <CreatePrediction />
+                <CreatePrediction postID={this.state.post_id}/>
             </div>
         )
     }
