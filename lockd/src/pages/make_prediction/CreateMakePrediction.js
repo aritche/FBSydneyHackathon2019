@@ -73,7 +73,7 @@ export default class CreateMakePrediction extends Component {
                 <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
                     <p style={{fontSize : "30px"}}>Similar Posts</p>
                     {this.state.similar.map(sim=>
-                    <Container as = {Link} to = {'/home'} style={{ border: "0.5px solid grey", background: "white", width: "{10}" }}>
+                    <Container as = {Link} to = {{'/prediction/'+{(sim[0].postID).toString(10)}}} style={{ border: "0.5px solid grey", background: "white", width: "{10}" }}>
                         {sim}
                     </Container>
                         )}
