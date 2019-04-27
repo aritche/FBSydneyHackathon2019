@@ -22,7 +22,7 @@ export default class ExtractFile extends Component {
                 console.log(this.state.predictions[i].likes);
                 this.state.predictions[i].likes++;
                 console.log(this.state.predictions[i].likes);
-
+                //update data
                 break;
             }
         }
