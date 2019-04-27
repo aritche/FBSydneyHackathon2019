@@ -78,8 +78,8 @@ export default class ExtractFile extends Component {
         }
     }
 
-    getPosts(postID){
-        return this.state.posts[postID];
+    getPosts(){
+        return this.state.posts;
     }
 
     getPredictions(postID){
