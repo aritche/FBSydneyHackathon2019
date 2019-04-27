@@ -13,7 +13,7 @@ export default class CreateMakePrediction extends Component {
         }
         var sorted = ["item 1", "item 2", "item 3"];
         for (var item = 1; item<sorted.length; item++){
-            state.similar.push(sorted[item]);
+            this.state.similar.push(sorted[item]);
 
     }
     };
@@ -61,7 +61,7 @@ export default class CreateMakePrediction extends Component {
                 <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
                     <p style={{fontSize : "30px"}}>Similar Posts</p>
                     {this.state.similar.map(sim =>
-                    <Container style = {{"1px solid black"}}>
+                    <Container style = {{border:"1px solid black"}}>
                     {sim[0]}
                     </Container>
                     )}

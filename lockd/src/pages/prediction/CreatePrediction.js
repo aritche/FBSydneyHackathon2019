@@ -56,7 +56,6 @@ export default class CreatePrediction extends Component {
     render() {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
-                Post ID: {this.state.postID}
                 <div style={{color:'white', paddingTop:'10px', fontSize:'20pt'}} className='centered-div'>
                     <Button style={{
                         background:'none', 
