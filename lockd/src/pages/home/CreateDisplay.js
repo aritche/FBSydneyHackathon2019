@@ -2,17 +2,6 @@ import React, { Component } from "react";
 import { Container, Grid } from "semantic-ui-react";
 import ExtractFile from "../../ExtractFile";
 
-//To - Do: Need to have a grid class that creates a grid based on the following example
-
-/**
- * Ok so what is the input values going to look like
- * Main prediction (i.e. prediction with most likes)
- * likes
- * contributers
- * tags
- * topic (unimplemented)
- * author:
- */
 export default class createDisplay extends Component {
   constructor() {
     super();
@@ -30,6 +19,7 @@ export default class createDisplay extends Component {
     };
 
     var extractor = new ExtractFile("fake_database/list.txt");
+
     function post(prediction, tag1, tag2, likes, contributions) {
       this.prediction = prediction;
       this.tag1 = tag1;
@@ -40,11 +30,17 @@ export default class createDisplay extends Component {
 
     for (var i = 0; i < extractor.getPosts().length; i++) {
       console.log("abc" +  i);
+      console.log(extractor.getPosts().length)
+      console.log(extractor.getPredictions(i+1)[0].prediction)
+      console.log(extractor.getPostByID(i + 1).tags[0])
+      console.log(extractor.getPostByID(i + 1).tags[1])
+      console.log(extractor.getPredictions(i+1)[0].likes)
+      console.log(extractor.getPostByID(i+1).contributions[0])
       this.state.posts.push(
         new post(
           extractor.getPredictions(i + 1)[0].prediction,
           extractor.getPostByID(i + 1).tags[0],
-          extractor.getPostByID(i + 1).tags[0],
+          extractor.getPostByID(i + 1).tags[1],
           extractor.getPredictions(i+1)[0].likes,
           extractor.getPostByID(i+1).contributions[0]
         )

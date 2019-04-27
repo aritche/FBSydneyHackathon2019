@@ -11,8 +11,8 @@ export default class ExtractFile extends Component {
             posts: [],
             predictions: []
         }
-        this.loadList("fake_database/list.txt");
-        this.loadPreds("fake_database/predictions.txt")
+        this.loadList("../fake_database/list.txt");
+        this.loadPreds("../fake_database/predictions.txt")
     };
 
     loadList = file => {
