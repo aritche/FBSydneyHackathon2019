@@ -65,7 +65,7 @@ export default class CreateMakePrediction extends Component {
                     </Container>
                 </Container>
 
-                <Container style = {{backgroundColor: "#455561", minHeight : "50vh"}}>
+                <Container style = {{marginTop:'20px', backgroundColor: "#455561", border:'1px solid black', minHeight : "50vh"}}>
                     <p style={{color: "#A6ABC4", fontSize : "35px", marginTop: "20px", paddingTop: "10px"}}>Similar Posts</p>
                     {this.state.similar.map(sim=>
                     <Container as = {Link} to={'/prediction/'+sim[1]} style={{height: "25px"}}>

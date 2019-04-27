@@ -6,7 +6,7 @@ import Routes from './Routes';
 function App() {
   return (
     <div className="App">
-        <div class="main">
+        <div class="main" style={{backgroundColor:'grey'}}>
             <NavBar/>
             <Routes/>
         </div>
