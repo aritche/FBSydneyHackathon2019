@@ -26,6 +26,9 @@ export default class NavBar extends Component {
 
         return (
             <Menu inverted pointing secondary style={{backgroundColor: 'black', padding: '10px', boxShadow: '2px 1px 2px #000000'}}>
+                <Button icon color='blue' as={Link} to={'/home'} name='plus square outline'>
+                    Home
+                </Button>
               <Container style={{color:'white'}}>
                 <Input icon='search' placeholder='Search for a prediction' onChange={this.updateQuery} onKeyPress={this.performSearch}/>
               </Container>
