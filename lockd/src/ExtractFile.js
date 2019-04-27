@@ -12,7 +12,7 @@ export default class ExtractFile extends Component {
             datas: [],
         }
 
-        this.update("fake_database/list.txt");
+        this.update(this.state.url);
         
     };
 
@@ -33,11 +33,10 @@ export default class ExtractFile extends Component {
         for (var i = 0; i < this.state.texts.length; i++){
             var data = new Object();
             var components = this.state.texts[i].split(",");
-            var prediction = components[0];
-            var likes = parseInt(components[1]);
-            var contributors = parseInt(components[2]);
+            var postID = components[0];
+            var contributors = parseInt(components[1]);
             var tags = [];
-            for(var j = 3; j < components.length; j++){
+            for(var j = 2; j < components.length; j++){
                 tags.push(components[j]);
             }
             var data = {
@@ -46,7 +45,6 @@ export default class ExtractFile extends Component {
                 contributors: contributors,
                 tags: tags
             }
-
             this.state.datas.push(data);
         }
     }
