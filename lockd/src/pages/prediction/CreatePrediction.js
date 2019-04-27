@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button, Header, Grid, TextArea } from 'semantic-ui-react';
+import ExtractFile from '../../ExtractFile';
 
 export default class CreatePrediction extends Component {
     constructor() {
@@ -8,22 +9,14 @@ export default class CreatePrediction extends Component {
         this.state = {
             errorMessage: 'An error has occurred.',
             value: '',
-            words: ['This', 'is', 'my', 'prediction.']
+            words: [],
+            prediction: '',
+            data: []
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        var extractor = new ExtractFile("fake_database/list.txt");
+        this.state.prediction = extractor.getData()[0].prediction;
+        this.state.words = this.state.prediction.split(" ");
     };
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-    
-    handleSubmit(event) {
-        var toParse = this.state.value;
-        this.state.words = toParse.split();
-        alert(this.state.words);
-        event.preventDefault();
-    }
 
     render() {
         return (
