@@ -1,13 +1,12 @@
-ID,Prediction,Likes
-1, antman will kill thanos, 270
-1, captain america will kill thanos, 140
-1, antman will kill captain america, 10
-2, cersi lanister will be killed by jamie lanister, 301
-2, jamie lanister will be killed by cersi lanister, 102
-2, ned stark will be killed by jamie lanister, 70
-3, ari will be unsuccessful with life, 4
-3, ari will be successful with life, 3
-3, ari will be unsuccessful with hackathon, 2
-4, ned stark will die, 1601
-4, ned stark won't die, 1002,
-4, arya stark will die, 67
+1,1,antman will kill thanos,270
+2,1,captain america will kill thanos,140
+3,1,antman will kill captain america,10
+4,2,cersi lanister will be killed by jamie lanister,301
+5,2,jamie lanister will be killed by cersi lanister,102
+6,2,ned stark will be killed by jamie lanister,70
+7,3,ari will be unsuccessful with life,4
+8,3,ari will be successful with life,3
+9,3,ari will be unsuccessful with hackathon,2
+10,4,ned stark will die,1601
+11,4,ned stark won't die,1002
+12,4,arya stark will die,67
