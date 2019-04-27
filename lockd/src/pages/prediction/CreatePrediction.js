@@ -61,28 +61,6 @@ export default class CreatePrediction extends Component {
             }
         }
 
-    
-
-
-        if (options.length > 0){
-            var toCheck = options[0];
-            var sim = new Similarity();
-            var toCompare = [];
-            for(var i = 0; i < this.state.extractor.getAllPredictions().length; i++){
-                if(toCheck.predID == this.state.extractor.getAllPredictions(i).predID){
-                    toCompare.push(this.state.extractor.getAllPredictions(i).prediction);
-                }
-            }
-            var weights = sim.getWeights(toCheck.prediction, toCompare);
-            for(var i = 0; i < weights.length; i++){
-                if(weights[i] > this.state.max){
-                    this.state.max = weights[i];
-                    this.state.match = toCompare[i];
-                }
-            }
-            var array = sim.getSimilar(toCheck.prediction);
-        }
-
     };
 
     handleClick = (selectedItem) => {
