@@ -82,6 +82,10 @@ export default class ExtractFile extends Component {
         return this.state.posts;
     }
 
+    getPostByID(postID){
+        return this.state.posts[postID];
+    }
+
     getPredictions(postID){
         var predictions = [];
         for (var i = 0; i < this.state.predictions.length; i++){
