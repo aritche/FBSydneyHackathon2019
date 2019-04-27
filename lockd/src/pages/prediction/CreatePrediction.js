@@ -13,6 +13,7 @@ import {
 } from "semantic-ui-react";
 import ExtractFile from "../../ExtractFile";
 import MetaInfo from "./MetaInfo";
+import './pred.css';
 
 export default class CreatePrediction extends Component {
     constructor(props) {
@@ -96,12 +97,12 @@ export default class CreatePrediction extends Component {
 
     render() {
         return (
-            <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
-                <div style={{color:'white', paddingTop:'10px', fontSize:'20pt'}} className='centered-div'>
+            <Container id="back" style={{backgroundColor: "gray", minHeight: '100vh'}}>
+                <div style={{color:'white', paddingTop:'30px', fontSize:'20pt'}} className='centered-div'>
                 <Grid centered style={{margin:"20px"}}>
                             <Grid.Row style={{padding:"3px"}}>
                     <Segment.Group horizontal style={{margin:"0", padding:"0"}}>
-                        <Segment inverted color='green' style={{width: '300px', padding:"0 10px 0 10px"}}>
+                        <Segment inverted color='grey' style={{width: '300px', padding:"0 10px 0 10px"}}>
                            {this.state.predictionVotes} votes
                         </Segment>
                         {this.state.prediction.map(pred => 
@@ -115,7 +116,7 @@ export default class CreatePrediction extends Component {
                         {this.state.alternatives.map(alt => 
                             <Grid.Row style={{padding:"3px"}}>
                                 <Segment.Group horizontal style={{margin:"0", padding:"0"}}>
-                                    <Segment inverted color='green' style={{padding:"0 10px 0 10px"}}>
+                                    <Segment inverted color='grey' style={{padding:"0 10px 0 10px"}}>
                                        {alt[1]} votes
                                     </Segment>
                                     <Segment vertical style={{padding:"0 10px 0 10px"}}>{alt[0]}</Segment>
