@@ -51,7 +51,7 @@ export default class NavBar extends Component {
                 </Button>
               <Container style={{color:'white'}}>
               </Container>
-                <Button icon color='green' as={Link} to={'/predict'} name='plus square outline'>
+                <Button icon color='green' as={Link} to={'/predict'} name='plus square outline' style={{margin: "auto"}}>
                     New
                 </Button>
             </Menu>
