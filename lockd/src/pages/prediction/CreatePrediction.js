@@ -4,8 +4,8 @@ import ExtractFile from '../../ExtractFile';
 import MetaInfo from './MetaInfo'
 
 export default class CreatePrediction extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             errorMessage: 'An error has occurred.',
@@ -14,11 +14,16 @@ export default class CreatePrediction extends Component {
             words: [],
             prediction: '',
             data: [],
-            alternatives: []
+            alternatives: [],
+            postID: 0
         }
+
+        this.state.postID = this.props.postID;
+        //console.log("OKKKKKKKKK");
+        //console.log(this.state.postID);
         var extractor = new ExtractFile("fake_database/list.txt");
 
-        var options = extractor.getPredictions(1)
+        var options = extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 
         });
@@ -26,7 +31,7 @@ export default class CreatePrediction extends Component {
         if (options.length > 0){
             this.state.prediction = options[0].prediction;
         }
-        console.log(this.state.words);
+        //console.log(this.state.words);
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
