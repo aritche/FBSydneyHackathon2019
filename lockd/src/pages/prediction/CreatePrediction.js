@@ -112,6 +112,7 @@ export default class CreatePrediction extends Component {
                             </Grid.Row>
                 </Grid>
                 </div>
+                <Divider horizontal invreted>Branching Predictions</Divider>
                 <Grid centered style={{margin:"20px"}}>
                         {this.state.alternatives.map(alt => 
                             <Grid.Row style={{padding:"3px"}}>
