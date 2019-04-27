@@ -11,7 +11,6 @@ export default class createDisplay extends Component {
     };
 
     var extractor = new ExtractFile("fake_database/list.txt");
-<<<<<<< .merge_file_a26524
 
     function post(prediction, tag1, tag2, likes, contributions) {
       this.prediction = prediction;
@@ -20,12 +19,9 @@ export default class createDisplay extends Component {
       this.likes = likes;
       this.contributions = contributions;
     }
-=======
->>>>>>> .merge_file_a08904
 
     console.log(extractor.getPosts().length);
     for (var i = 0; i < extractor.getPosts().length; i++) {
-<<<<<<< .merge_file_a26524
       console.log("abc" +  i);
       console.log(extractor.getPosts().length)
       console.log(extractor.getPredictions(i+1)[0].prediction)
@@ -42,12 +38,6 @@ export default class createDisplay extends Component {
           extractor.getPostByID(i+1).contributions[0]
         )
       )
-=======
-        var val = extractor.getPredictions(i+1)[0];
-        //console.log(val);
-        //console.log(new Post(val.prediction,val.tags[0],val.tags[0],val.likes,val.contributions[0]));
-        console.log(val);
->>>>>>> .merge_file_a08904
     }
   }
 
