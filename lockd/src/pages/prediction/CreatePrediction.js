@@ -16,7 +16,7 @@ export default class CreatePrediction extends Component {
             data: []
         }
         var extractor = new ExtractFile("fake_database/list.txt");
-        this.state.prediction = extractor.getData()[0].prediction;
+        this.state.prediction = extractor.getPredictions(1)[2].prediction;
         this.state.words = this.state.prediction.split(" ");
         
     };
