@@ -8,7 +8,7 @@ export default class CreatePrediction extends Component {
         this.state = {
             errorMessage: 'An error has occurred.',
             value: '',
-            words: ['This', 'is', 'my', 'prediction.']
+            words: ['Jon', 'snow', 'will', 'bend', 'the', 'knee', 'to', 'save', 'the', 'North']
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
