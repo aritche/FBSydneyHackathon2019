@@ -86,6 +86,7 @@ export default class CreatePrediction extends Component {
     };
 
     handleClick = (selectedItem) => {
+        
         alert('Increase vote count of "'+ selectedItem + '" in backend');
         //this.state.extractor.addVote(selectedItem);
     }
@@ -98,13 +99,17 @@ export default class CreatePrediction extends Component {
         // once the major prediction is determined, get alternate words:
         var result = []
         result.push({
-                    text: this.state.prediction[this.state.seen]
+                    key: this.state.prediction[this.state.seen],
+                    text: this.state.prediction[this.state.seen],
+                    value: this.state.prediction[this.state.seen]
                 });
         var target = this.state.word_options[this.state.seen];
 
         for (var i = 0; i < target.length; i++){
             result.push({
-                text: target[i]  
+                key: target[i],
+                text: target[i],
+                value: target[i]
             })
         }
         this.state.seen++;
@@ -118,7 +123,7 @@ export default class CreatePrediction extends Component {
                 <Grid centered style={{margin:"20px"}}>
                             <Grid.Row style={{padding:"3px"}}>
                     <Segment.Group horizontal style={{margin:"0", padding:"0"}}>
-                        <Segment inverted color='green' style={{padding:"0 10px 0 10px"}}>
+                        <Segment inverted color='green' style={{width: '300px', padding:"0 10px 0 10px"}}>
                            {this.state.predictionVotes} votes
                         </Segment>
                         {this.state.prediction.map(pred => 
