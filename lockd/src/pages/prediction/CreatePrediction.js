@@ -23,7 +23,9 @@ export default class CreatePrediction extends Component {
             return b.likes - a.likes; 
         });
 
-        this.state.prediction = options[0].prediction;
+        if (options.length > 0){
+            this.state.prediction = options[0].prediction;
+        }
         console.log(this.state.words);
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
