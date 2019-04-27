@@ -13,6 +13,15 @@ export default class CreateMakePrediction extends Component {
         }
        
     };
+    
+    componentDidMount() {
+        setInterval(() => {
+            this.setState(() => {
+                console.log('setting state');
+                return { unseen: "does not display" }
+            });
+        }, 1000);
+    }
 
     updateQuery = (e) => {
         this.setState({query: e.target.value});
@@ -27,7 +36,9 @@ export default class CreateMakePrediction extends Component {
             // CODE FOR WHEN ENTER IS PRESSED
             // STRING YOU ENTERED IS STORED IN: this.state.query
             for (var item = 0; item<array.length; item++){
-                this.setState(state=>{similar: this.state.similar.push(array[item].prediction)});
+                this.state.similar.push(array[item].prediction);
+                //this.setState((state) => {similar: this.state.similar.push(array[item].prediction)});
+                console.log(this.state.similar);
             }
         }
 
@@ -37,6 +48,7 @@ export default class CreateMakePrediction extends Component {
     }
 
     render() {
+        console.log('render called');
         return (
             <Container>
                 <Container style={{backgroundColor: "#9AF36D", minHeight: '50vh', marginTop: "40px"}}>
