@@ -16,6 +16,18 @@ export default class ExtractFile extends Component {
         this.loadPreds();
     };
     
+    addVote(predID){
+        for(var i = 0; i < this.state.predictions.length; i++){
+            if(this.state.predictions[i].predID === predID){
+                console.log(this.state.predictions[i].likes);
+                this.state.predictions[i].likes++;
+                console.log(this.state.predictions[i].likes);
+
+                break;
+            }
+        }
+        return;
+    }
     loadList() {
 		var rawFile = new XMLHttpRequest();
 		rawFile.open("GET", this.state.url1, false);
