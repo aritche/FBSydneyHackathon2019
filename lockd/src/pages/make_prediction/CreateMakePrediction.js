@@ -11,12 +11,17 @@ export default class CreateMakePrediction extends Component {
             query: '',
             similar: []
         }
-        var sorted = ["item 1", "item 2", "item 3"];
-        for (var item = 1; item<sorted.length; item++){
-            this.state.similar.push(sorted[item]);
-
-    }
+       
     };
+    
+    componentDidMount() {
+        setInterval(() => {
+            this.setState(() => {
+                console.log('setting state');
+                return { unseen: "does not display" }
+            });
+        }, 1000);
+    }
 
     updateQuery = (e) => {
         this.setState({query: e.target.value});
@@ -25,20 +30,25 @@ export default class CreateMakePrediction extends Component {
     performSearch = (e) => {
         if (e.key === 'Enter'){
             var sim = new Similarity();
-            sim.getSimilar(this.state.query);
+           
+            var array = sim.getSimilar(this.state.query);
+            console.log(array);
             // CODE FOR WHEN ENTER IS PRESSED
             // STRING YOU ENTERED IS STORED IN: this.state.query
-            alert(this.state.query);
+            for (var item = 0; item<array.length; item++){
+                this.state.similar.push(array[item].prediction);
+                //this.setState((state) => {similar: this.state.similar.push(array[item].prediction)});
+                console.log(this.state.similar);
+            }
         }
 
         
         
 
-    
-
     }
 
     render() {
+        console.log('render called');
         return (
             <Container>
                 <Container style={{backgroundColor: "#9AF36D", minHeight: '50vh', marginTop: "40px"}}>
@@ -60,11 +70,12 @@ export default class CreateMakePrediction extends Component {
 
                 <Container style = {{backgroundColor: "#D1FA89", minHeight : "50vh"}}>
                     <p style={{fontSize : "30px"}}>Similar Posts</p>
-                    {this.state.similar.map(sim =>
-                    <Container style = {{border:"1px solid black"}}>
-                    {sim[0]}
+                    {this.state.similar.map(sim=>
+                    <Container>
+                        {sim}
                     </Container>
-                    )}
+                        )}
+                    
 
                     
                 </Container>

@@ -36,7 +36,6 @@ export default class CreatePrediction extends Component {
         }
 
         this.state.postID = parseInt(this.props.postID);
-
         var options = this.state.extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 
@@ -67,7 +66,6 @@ export default class CreatePrediction extends Component {
 
         if (options.length > 0){
             var toCheck = options[0];
-            console.log(toCheck);
             var sim = new Similarity();
             var toCompare = [];
             for(var i = 0; i < this.state.extractor.getAllPredictions().length; i++){
@@ -82,10 +80,9 @@ export default class CreatePrediction extends Component {
                     this.state.match = toCompare[i];
                 }
             }
-            console.log(this.state.max);
             var array = sim.getSimilar(toCheck.prediction);
-            console.log(array);
         }
+
     };
 
     handleClick = (selectedItem) => {
