@@ -48,11 +48,11 @@ export default class CreateMakePrediction extends Component {
     render() {
         return (
             <Container>
-                <Container id="back" style={{backgroundColor: "#3A435E", minHeight: '50vh', marginTop: "40px", paddingTop: "10px"}}>
+                <Container id="back" style={{backgroundColor: "#3A435E", minHeight: '50vh', marginTop: "30px", paddingTop: "15px"}}>
                     <Container>
                         <p style={{color: "#455561", fontSize : "30px"}}>Create A New Prediction</p>
                         <Input
-                        style={{marginTop : "40px"}}
+                        style={{marginTop : "30px"}}
                         icon='tags'
                         iconPosition='left'
                         labelPosition='right'
@@ -68,7 +68,7 @@ export default class CreateMakePrediction extends Component {
                 <Container style = {{backgroundColor: "#455561", minHeight : "50vh"}}>
                     <p style={{color: "#A6ABC4", fontSize : "35px", marginTop: "20px", paddingTop: "10px"}}>Similar Posts</p>
                     {this.state.similar.map(sim=>
-                    <Container as = {Link} to={'/prediction/'+sim[1]} style={{}}>
+                    <Container as = {Link} to={'/prediction/'+sim[1]} style={{height: "25px"}}>
                         <div style = {{backgroundColor: "#6C6F7F", color: "black", width: "50%", margin: "0 auto", border: "1px black solid"}}>
                             {sim[0]}
                         </div>
