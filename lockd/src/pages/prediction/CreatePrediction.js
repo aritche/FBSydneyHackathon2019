@@ -28,8 +28,11 @@ export default class CreatePrediction extends Component {
             match: '',
             postID: 0
         }
+
+        this.state.postID = this.props.postID;
+
         var extractor = new ExtractFile();
-        var options = extractor.getPredictions(1)
+        var options = extractor.getPredictions(this.state.postID)
         options.sort(function (a,b){
             return b.likes - a.likes; 
         });
@@ -42,31 +45,30 @@ export default class CreatePrediction extends Component {
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
 
-        var toCheck = options[0];
-        var sim = new Similarity();
-        var toCompare = [];
-        for(var i = 0; i < extractor.getAllPredictions().length; i++){
-            if(toCheck.predID == extractor.getAllPredictions(i).predID){
-                toCompare.push(extractor.getAllPredictions(i).prediction);
+        if (options.length > 0){
+            var toCheck = options[0];
+            var sim = new Similarity();
+            var toCompare = [];
+            for(var i = 0; i < extractor.getAllPredictions().length; i++){
+                if(toCheck.predID == extractor.getAllPredictions(i).predID){
+                    toCompare.push(extractor.getAllPredictions(i).prediction);
+                }
             }
-        }
-        var weights = sim.getWeights(toCheck.prediction, toCompare);
-        for(var i = 0; i < weights.length; i++){
-            if(weights[i] > this.state.max){
-                this.state.max = weights[i];
-                this.state.match = toCompare[i];
+            var weights = sim.getWeights(toCheck.prediction, toCompare);
+            for(var i = 0; i < weights.length; i++){
+                if(weights[i] > this.state.max){
+                    this.state.max = weights[i];
+                    this.state.match = toCompare[i];
+                }
             }
+            console.log(this.state.max);
         }
-        console.log(this.state.max);
-
-        this.state.postID = this.props.postID;
-        //console.log("OKKKKKKKKK");
-        //console.log(this.state.postID);
 };
 
     render() {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
+                Post ID: {this.state.postID}
                 <div style={{color:'white', paddingTop:'10px', fontSize:'20pt'}} className='centered-div'>
                     <Button style={{
                         background:'none', 
