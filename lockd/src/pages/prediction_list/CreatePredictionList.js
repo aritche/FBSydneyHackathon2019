@@ -8,6 +8,7 @@ export default class CreatePredictionList extends Component {
         this.state = {
             errorMessage: 'An error has occurred.'
         }
+        
     };
 
     render() {
