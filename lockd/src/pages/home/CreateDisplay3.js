@@ -2,52 +2,54 @@ import React, { Component } from "react";
 import { Container, Grid } from "semantic-ui-react";
 import ExtractFile from "../../ExtractFile";
 
+//To - Do: Need to have a grid class that creates a grid based on the following example
+
+/**
+ * Ok so what is the input values going to look like
+ * Main prediction (i.e. prediction with most likes)
+ * likes
+ * contributers
+ * tags
+ * topic (unimplemented)
+ * author:
+ */
+
+class Post{
+    constructor(prediction, tag1, tag2, likes, contributions) {
+      prediction = prediction;
+      tag1 = tag1;
+      tag2 = tag2;
+      likes = likes;
+      contributions = contributions;
+    }
+}
+
 export default class createDisplay extends Component {
   constructor() {
     super();
 
     this.state = {
+      errorMessage: "An error has occured",
+      value: "",
+      //author
+      prediction: "",
+      tag1: "",
+      tag2: "",
+      likes: "",
+      contributions: "",
       posts: []
     };
 
     var extractor = new ExtractFile("fake_database/list.txt");
-<<<<<<< .merge_file_a26524
 
-    function post(prediction, tag1, tag2, likes, contributions) {
-      this.prediction = prediction;
-      this.tag1 = tag1;
-      this.tag2 = tag2;
-      this.likes = likes;
-      this.contributions = contributions;
-    }
-=======
->>>>>>> .merge_file_a08904
 
-    console.log(extractor.getPosts().length);
-    for (var i = 0; i < extractor.getPosts().length; i++) {
-<<<<<<< .merge_file_a26524
-      console.log("abc" +  i);
-      console.log(extractor.getPosts().length)
-      console.log(extractor.getPredictions(i+1)[0].prediction)
-      console.log(extractor.getPostByID(i + 1).tags[0])
-      console.log(extractor.getPostByID(i + 1).tags[1])
-      console.log(extractor.getPredictions(i+1)[0].likes)
-      console.log(extractor.getPostByID(i+1).contributions[0])
-      this.state.posts.push(
-        new post(
-          extractor.getPredictions(i + 1)[0].prediction,
-          extractor.getPostByID(i + 1).tags[0],
-          extractor.getPostByID(i + 1).tags[1],
-          extractor.getPredictions(i+1)[0].likes,
-          extractor.getPostByID(i+1).contributions[0]
-        )
-      )
-=======
+    var iters = extractor.getPosts().length;
+
+    console.log(Post(1,2,3,4,5));
+    for (var i = 0; i < iters; i++) {
         var val = extractor.getPredictions(i+1)[0];
-        //console.log(val);
-        //console.log(new Post(val.prediction,val.tags[0],val.tags[0],val.likes,val.contributions[0]));
         console.log(val);
->>>>>>> .merge_file_a08904
+        console.log(new Post(val.prediction,val.tags[0],val.tags[0],val.likes,val.contributions[0]));
     }
   }
 
