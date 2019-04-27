@@ -1,7 +1,16 @@
-import React, { Component } from 'react';
-import { Segment, Container, Button, Header, Grid, Divider, TextArea } from 'semantic-ui-react';
-import ExtractFile from '../../ExtractFile';
-import MetaInfo from './MetaInfo'
+import Similarity from '../../Similarity';
+import React, { Component } from "react";
+import {
+  Segment,
+  Container,
+  Button,
+  Header,
+  Grid,
+  Divider,
+  TextArea
+} from "semantic-ui-react";
+import ExtractFile from "../../ExtractFile";
+import MetaInfo from "./MetaInfo";
 
 export default class CreatePrediction extends Component {
     constructor(props) {
@@ -15,14 +24,14 @@ export default class CreatePrediction extends Component {
             prediction: '',
             data: [],
             alternatives: [],
+            max: 0,
+            match: '',
             postID: 0
         }
 
-        this.state.postID = this.props.postID;
-        //console.log("OKKKKKKKKK");
-        //console.log(this.state.postID);
-        var extractor = new ExtractFile("fake_database/list.txt");
+        this.state.postID = parseInt(this.props.postID);
 
+        var extractor = new ExtractFile();
         var options = extractor.getPredictions(this.state.postID);
         options.sort(function (a,b){
             return b.likes - a.likes; 
@@ -31,15 +40,34 @@ export default class CreatePrediction extends Component {
         if (options.length > 0){
             this.state.prediction = options[0].prediction;
         }
-        //console.log(this.state.words);
         for (var item = 1; item < options.length; item++){
             this.state.alternatives.push([options[item].prediction, options[item].likes]);
         }
-    };
+
+        if (options.length > 0){
+            var toCheck = options[0];
+            var sim = new Similarity();
+            var toCompare = [];
+            for(var i = 0; i < extractor.getAllPredictions().length; i++){
+                if(toCheck.predID == extractor.getAllPredictions(i).predID){
+                    toCompare.push(extractor.getAllPredictions(i).prediction);
+                }
+            }
+            var weights = sim.getWeights(toCheck.prediction, toCompare);
+            for(var i = 0; i < weights.length; i++){
+                if(weights[i] > this.state.max){
+                    this.state.max = weights[i];
+                    this.state.match = toCompare[i];
+                }
+            }
+            console.log(this.state.max);
+        }
+};
 
     render() {
         return (
             <Container style={{backgroundColor: "gray", minHeight: '100vh'}}>
+                Post ID: {this.state.postID}
                 <div style={{color:'white', paddingTop:'10px', fontSize:'20pt'}} className='centered-div'>
                     <Button style={{
                         background:'none', 
@@ -64,9 +92,12 @@ export default class CreatePrediction extends Component {
                         )}
                 </Grid>
                 
-
+                <div>
+                    {this.state.match}
+                </div>
                 <Divider />
                 <MetaInfo/>
+
             </Container>
         )
     }

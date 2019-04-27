@@ -1,5 +1,4 @@
-ID,Contributers,Tags
 1,301,anus,explode  
-2, 400, GOT, cersi
-3, 4, ari, hack
-4, 2345, GOT, S01e09, Ned Stark
+2,400,GOT,cersi
+3,4,ari,hack
+4,2345,GOT,S01e09,Ned Stark

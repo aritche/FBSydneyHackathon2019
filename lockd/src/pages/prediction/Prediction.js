@@ -14,7 +14,6 @@ export default class Prediction extends Component {
     render() {
         return (
             <div>
-                {this.state.post_id}
                 <CreatePrediction postID={this.state.post_id}/>
             </div>
         )
