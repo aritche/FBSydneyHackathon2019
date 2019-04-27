@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Grid, Segment } from 'semantic-ui-react';
 
 export default class MetaInfo extends Component {
     constructor(){
@@ -18,11 +18,11 @@ export default class MetaInfo extends Component {
         return (
             <Container textAlign='left' style={{padding:'0px', fontSize:'18px'}}>
                 <strong>Comments:</strong>
-                <ul>
+                <Segment.Group >
                 {
-                    this.state.comments.map(comment => <li>{comment}</li>)
+                    this.state.comments.map(comment => <Segment tertiary>{comment}</Segment>)
                 }
-                </ul>
+                </Segment.Group>
             </Container>
         )
     }
