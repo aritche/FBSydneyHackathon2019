@@ -104,7 +104,7 @@ export default class CreatePrediction extends Component {
                 <Grid centered style={{margin:"20px"}}>
                             <Grid.Row style={{padding:"3px"}}>
                     <Segment.Group horizontal style={{margin:"0", padding:"0"}}>
-                        <Segment inverted color='grey' style={{width: '300px', padding:"0 10px 0 10px"}}>
+                        <Segment inverted color='grey' style={{width: '300px', margin: "auto"}}>
                            {this.state.predictionVotes} votes
                         </Segment>
                         {this.state.prediction.map(pred => 
@@ -119,7 +119,7 @@ export default class CreatePrediction extends Component {
                         {this.state.alternatives.map(alt => 
                             <Grid.Row style={{padding:"3px"}}>
                                 <Segment.Group horizontal style={{margin:"0", padding:"0"}}>
-                                    <Segment inverted color='grey' style={{padding:"0 10px 0 10px"}}>
+                                    <Segment inverted color='grey' style={{padding:"0 10px 0 10px", margin: "auto"}}>
                                        {alt[1]} votes
                                     </Segment>
                                     <Segment vertical style={{padding:"0 10px 0 10px"}}>{alt[0]}</Segment>
