@@ -21,7 +21,7 @@ export default class PredictionItem extends Component {
 
     render() {
         return (
-            <Item as={Link} to={'./prediction/' + this.state.id}>
+            <Item as={Link} to={'/prediction/' + this.state.id}>
                 <Item.Content>
                     <Item.Header style={{backgroundColor:'blue'}}>
                         {this.state.prediction}
