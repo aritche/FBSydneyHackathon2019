@@ -27,12 +27,12 @@ export default class Post extends Component {
 
     render() {
         return (
-                <Item key={this.state.id} as={Link} to={'/prediction/' + this.state.id} style={{width:'75%', margin:'0 auto', backgroundColor:'lightblue'}}>
+                <Item key={this.state.id} as={Link} to={'/prediction/' + this.state.id} style={{width:'75%', margin:'0 auto', backgroundColor:'lightblue', display: 'flex'}}>
                     <Item.Content>
                         <Item.Header>
                             <Grid columns={4}>
                                 <Grid.Row>
-                                    <Grid.Column >
+                                    <Grid.Column>
                                         {this.state.votes}
                                     </Grid.Column>
 

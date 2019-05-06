@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Menu, Container, Input, Button, Icon} from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import {Menu, Grid, Container, Input, Button, Icon, Search} from 'semantic-ui-react';
+import {Link, withRouter} from 'react-router-dom';
 import ExtractFile from "../ExtractFile";
 
 export default class NavBar extends Component {
@@ -40,20 +40,18 @@ export default class NavBar extends Component {
         
     }
 
-
     render() {
-
         return (
-            <Menu inverted pointing secondary style={{backgroundColor: '#313E50', padding: '10px', boxShadow: '2px 1px 2px #000000'}}>
-                <span style={{color: "white", marginRight: "20px", marginTop: "10px", fontSize: "18px"}}>Predictr</span>
-                <Button icon onClick={this.handleClick} color='blue' as={Link} to={'/prediction/' + this.state.r} name='plus square outline'>
-                   Random Prediction 
-                </Button>
-              <Container style={{color:'white'}}>
-              </Container>
-                <Button icon color='green' as={Link} to={'/predict'} name='plus square outline' style={{margin: "auto"}}>
-                    New
-                </Button>
+            <Menu inverted pointing secondary style={{backgroundColor: '#313E50', padding: '0', boxShadow: '2px 1px 2px #000000'}}>
+                <Menu.Item as={Link} to={'/home'} name='Predictr' style={{}}/>
+                <Menu.Item as={Link} to={'/prediction/' + this.state.r} onClick={this.handleClick} name='Random Prediction' style={{}}/>
+
+                <Menu.Menu position='right' style={{}}>
+                    <Menu.Item>
+                        <Input placeholder='Search...'/>
+                    </Menu.Item>
+                    <Menu.Item as={Link} to={'/predict'} name='New'/>
+                </Menu.Menu>
             </Menu>
 
         )
