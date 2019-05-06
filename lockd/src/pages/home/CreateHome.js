@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {} from 'semantic-ui-react';
+import {Segment, Item} from 'semantic-ui-react';
 import CreateHome from './CreateHome';
 import PredictionItem from '../make_prediction/PredictionItem';
+import Post from './Post';
 
 export default class Home extends Component {
     constructor(){
@@ -32,13 +33,19 @@ export default class Home extends Component {
     render(){
         return(
             <div>
-                Home Page
-                Posts:
+                <Item.Group divided link>
                     {this.state.posts.map(post => 
-                        <div>
-                            <PredictionItem id={post[0]} prediction={post[1]} votes={post[2]}/>
-                        </div>
+                        <Post
+                            id={post[0]}
+                            prediction={post[1]} 
+                            votes={post[2]}
+                            tags={['thanos', 'antman']}
+                            description={'no description given, it would usually go here and by quite long so i"m trying to simulate one'}
+                            date={'06/05/19'}
+                            author={'Mr. Thanos'}
+                        />
                      )}
+                </Item.Group>
             </div>
         )
     }
