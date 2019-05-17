@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Menu, Grid, Container, Input, Button, Icon, Search} from 'semantic-ui-react';
+import {Menu, Grid, Container, Input, Button, Icon, Image, Search} from 'semantic-ui-react';
 import {Link, withRouter} from 'react-router-dom';
 import ExtractFile from "../ExtractFile";
 
@@ -43,7 +43,9 @@ export default class NavBar extends Component {
     render() {
         return (
             <Menu inverted pointing secondary style={{backgroundColor: '#313E50', padding: '0', boxShadow: '2px 1px 2px #000000'}}>
-                <Menu.Item as={Link} to={'/'} name='Predictr' style={{}}/>
+                <Menu.Item as={Link} to={'/'}>
+                <Image src={'/images/lockd_logo.png'} style={{height: 20}}/>
+                </Menu.Item>
                 <Menu.Item as={Link} to={'/prediction/' + this.state.r} onClick={this.handleClick} name='Random Prediction' style={{}}/>
 
                 <Menu.Menu position='right' style={{}}>
